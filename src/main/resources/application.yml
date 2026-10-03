@@ -1,0 +1,51 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: indomaret
+  profiles:
+    active: mysql
+  datasource:
+    url: jdbc:mysql://localhost:3306/indomaret_db?useSSL=false&serverTimezone=Asia/Jakarta&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+        dialect: org.hibernate.dialect.MySQLDialect
+
+app:
+  security:
+    jwt:
+      secret: "indomaret-super-secret-key-32bytes-for-hmac-sha256-signature-assignment-token-2025!"
+      expiration-ms: 86400000 # 24 hours
+  pagination:
+    default-page-size: 20
+    max-page-size: 100
+  whitelist:
+    always-include-in-search: true
+  audit:
+    enabled: true
+
+---
+spring:
+  config:
+    activate:
+      on-profile: postgres
+  datasource:
+    url: jdbc:postgresql://localhost:5432/indomaret_db
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect

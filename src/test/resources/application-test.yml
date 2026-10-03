@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:indomaret_test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MySQL
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    database-platform: org.hibernate.dialect.H2Dialect
+
+app:
+  security:
+    jwt:
+      secret: "indomaret-super-secret-key-32bytes-for-hmac-sha256-signature-assignment-token-2025!"
+      expiration-ms: 3600000
+  pagination:
+    default-page-size: 10
+    max-page-size: 50
+  whitelist:
+    always-include-in-search: true
+  audit:
+    enabled: true
