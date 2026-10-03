@@ -313,20 +313,6 @@ curl -X GET "http://localhost:8080/api/v1/audit-logs?page=0&size=50" \
                                                                    │    is_active          │
                                                                    │    is_deleted         │
                                                                    └───────────────────────┘
-```
-
----
-
-## 📄 Submission PDF Documents
-
-As requested in the submission guidelines:
-1. **API Documentation**:
-   * File: `Farhan_BackendDeveloper_APIDocumentation.pdf`
-   * Location: Root directory & `Downloads/` directory
-2. **Database Design Documentation**:
-   * File: `Farhan_BackendDeveloper_DatabaseDesignDocumentation.pdf`
-   * Location: Root directory & `Downloads/` directory
-
 ---
 
 © 2026 Klik Indomaret - Technical Assessment Submission by Farhan (OTH00060172).
